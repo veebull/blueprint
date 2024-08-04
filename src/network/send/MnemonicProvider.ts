@@ -9,6 +9,7 @@ import {
     WalletContractV3R1,
     WalletContractV3R2,
     WalletContractV4,
+    WalletContractV5R1
 } from '@ton/ton';
 import {
     Address,
@@ -44,7 +45,7 @@ interface WalletClass {
     create(args: { workchain: number; publicKey: Buffer }): WalletInstance;
 }
 
-export type WalletVersion = 'v1r1' | 'v1r2' | 'v1r3' | 'v2r1' | 'v2r2' | 'v3r1' | 'v3r2' | 'v4';
+export type WalletVersion = 'v1r1' | 'v1r2' | 'v1r3' | 'v2r1' | 'v2r2' | 'v3r1' | 'v3r2' | 'v4' | 'v5r1';
 
 const wallets: Record<WalletVersion, WalletClass> = {
     v1r1: WalletContractV1R1,
@@ -55,6 +56,7 @@ const wallets: Record<WalletVersion, WalletClass> = {
     v3r1: WalletContractV3R1,
     v3r2: WalletContractV3R2,
     v4: WalletContractV4,
+    v5r1: WalletContractV5R1,
 };
 
 export class MnemonicProvider implements SendProvider {
